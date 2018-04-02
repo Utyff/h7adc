@@ -57,11 +57,11 @@
 #define ADCx_RELEASE_RESET()            __HAL_RCC_ADC12_RELEASE_RESET()
 
 /* Definition for ADCx Channel Pin */
-#define ADCx_CHANNEL_PIN                GPIO_PIN_0
+#define ADCx_CHANNEL_PIN                GPIO_PIN_6
 #define ADCx_CHANNEL_GPIO_PORT          GPIOA
 
 /* Definition for ADCx's Channel */
-#define ADCx_CHANNEL                    ADC_CHANNEL_0
+#define ADCx_CHANNEL                    ADC_CHANNEL_3
 #define SAMPLINGTIME                    ADC_SAMPLETIME_8CYCLES_5
 
 /* Definition for ADCx's Oversampling parameters */
