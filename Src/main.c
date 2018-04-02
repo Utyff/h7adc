@@ -133,11 +133,11 @@ int main(void)
   AdcHandle.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DR;         /* DR mode selected */
   AdcHandle.Init.BoostMode                = ENABLE;                        /* Enable Boost mode as ADC clock frequency is bigger than 20 MHz */
   AdcHandle.Init.Overrun                  = ADC_OVR_DATA_OVERWRITTEN;      /* DR register is overwritten with the last conversion result in case of overrun */
-  AdcHandle.Init.OversamplingMode         = ENABLE;                        /* Oversampling enabled */
-  AdcHandle.Init.Oversampling.Ratio                 = OVERSAMPLING_RATIO;    /* Oversampling ratio */
-  AdcHandle.Init.Oversampling.RightBitShift         = RIGHTBITSHIFT;         /* Right shift of the oversampled summation */
-  AdcHandle.Init.Oversampling.TriggeredMode         = TRIGGEREDMODE;         /* Specifies whether or not a trigger is needed for each sample */
-  AdcHandle.Init.Oversampling.OversamplingStopReset = OVERSAMPLINGSTOPRESET; /* Specifies whether or not the oversampling buffer is maintained during injection sequence */    
+  AdcHandle.Init.OversamplingMode         = DISABLE;                        /* Oversampling enabled */
+//  AdcHandle.Init.Oversampling.Ratio                 = OVERSAMPLING_RATIO;    /* Oversampling ratio */
+//  AdcHandle.Init.Oversampling.RightBitShift         = RIGHTBITSHIFT;         /* Right shift of the oversampled summation */
+//  AdcHandle.Init.Oversampling.TriggeredMode         = TRIGGEREDMODE;         /* Specifies whether or not a trigger is needed for each sample */
+//  AdcHandle.Init.Oversampling.OversamplingStopReset = OVERSAMPLINGSTOPRESET; /* Specifies whether or not the oversampling buffer is maintained during injection sequence */
 
 
  
@@ -199,7 +199,7 @@ int main(void)
     /* Convert the result from 20 bit value to the voltage dimension (mV unit) */
     /* Vref = 3.3 V */
     uwInputVoltage = uwConvertedValue * 3300;  
-    uwInputVoltage = uwInputVoltage / 0xFFFF0;
+    uwInputVoltage = uwInputVoltage / 0xFFFF;
 
     HAL_Delay(300);
   }
