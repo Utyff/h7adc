@@ -1,14 +1,16 @@
 /**
   ******************************************************************************
-  * @file    ADC/ADC_OverSampler/Inc/main.h
-  * @author  MCD Application Team
-  * @version V1.2.0
-  * @date    29-December-2017
-  * @brief   Header for main.c module
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
   ******************************************************************************
-  * @attention
+  ** This notice applies to any and all portions of this file
+  * that are not between comment pairs USER CODE BEGIN and
+  * USER CODE END. Other portions of this file, whether 
+  * inserted by the user or by software development tools
+  * are owned by their respective copyright owners.
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
+  * COPYRIGHT(c) 2018 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -36,42 +38,38 @@
   */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef __MAIN_H__
+#define __MAIN_H__
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32h7xx_hal.h"
-//#include "stm32h743i_eval.h"
 
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* User can use this section to tailor ADCx instance used and associated
-   resources */
-   
-/* Definition for ADCx clock resources */
-#define ADCx                            ADC1
-#define ADCx_CLK_ENABLE()               __HAL_RCC_ADC12_CLK_ENABLE()
-#define ADCx_CHANNEL_GPIO_CLK_ENABLE()  __HAL_RCC_GPIOA_CLK_ENABLE()
+/* USER CODE BEGIN Includes */
 
-#define ADCx_FORCE_RESET()              __HAL_RCC_ADC12_FORCE_RESET()
-#define ADCx_RELEASE_RESET()            __HAL_RCC_ADC12_RELEASE_RESET()
+/* USER CODE END Includes */
 
-/* Definition for ADCx Channel Pin */
-#define ADCx_CHANNEL_PIN                GPIO_PIN_6
-#define ADCx_CHANNEL_GPIO_PORT          GPIOA
+/* Private define ------------------------------------------------------------*/
 
-/* Definition for ADCx's Channel */
-#define ADCx_CHANNEL                    ADC_CHANNEL_3
-#define SAMPLINGTIME                    ADC_SAMPLETIME_8CYCLES_5
+/* ########################## Assert Selection ############################## */
+/**
+  * @brief Uncomment the line below to expanse the "assert_param" macro in the 
+  *        HAL drivers code
+  */
+/* #define USE_FULL_ASSERT    1U */
 
-/* Definition for ADCx's Oversampling parameters */
-#define OVERSAMPLING_RATIO              1023                               /* 1024-oversampling */                                      
-#define RIGHTBITSHIFT                   ADC_RIGHTBITSHIFT_6                /* 6-bit right shift of the oversampled summation */          
-#define TRIGGEREDMODE                   ADC_TRIGGEREDMODE_SINGLE_TRIGGER   /* A single trigger for all channel oversampled conversions */
-#define OVERSAMPLINGSTOPRESET           ADC_REGOVERSAMPLING_CONTINUED_MODE /* Oversampling buffer maintained during injection sequence */
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
+/* USER CODE BEGIN Private defines */
 
-#endif /* __MAIN_H */
+/* USER CODE END Private defines */
+
+#ifdef __cplusplus
+ extern "C" {
+#endif
+void _Error_Handler(char *, int);
+
+#define Error_Handler() _Error_Handler(__FILE__, __LINE__)
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __MAIN_H__ */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

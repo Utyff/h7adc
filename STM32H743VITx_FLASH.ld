@@ -157,7 +157,25 @@ SECTIONS
     . = ALIGN(8);
   } >DTCMRAM
 
-  
+
+  /* AXI SRAM (D1 domain): AXI SRAM */
+  .RAM_D1 :
+  {
+        KEEP(*(.RAM_AXI)) /* ORIGIN = 0x24000000, LENGTH = 512K */
+  } >RAM_D1
+
+  /* AHB SRAM (D2 domain): AHB SRAM1-3*/
+  .RAM_D2 :
+  {
+        KEEP(*(.RAM_D2)) /* ORIGIN = 0x30000000, LENGTH = 288K */
+  } >RAM_D2
+
+ /* AHB SRAM (D3 domain): AHB SRAM4 */
+ .RAM_D3 :
+  {
+        KEEP(*(.RAM_D3)) /* ORIGIN = 0x38000000, LENGTH = 64K */
+  } >RAM_D3
+
 
   /* Remove information from the standard libraries */
   /DISCARD/ :
